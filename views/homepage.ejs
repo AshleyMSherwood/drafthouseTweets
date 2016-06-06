@@ -1,7 +1,7 @@
 <script language="javascript">
   var subscribeToTopics = function(){
     $(document).foundation();
-    var topics = ['#film, #movie'];
+    var topics = ['#film, #movie, #austin'];
     console.log('Subscribing to topics',topics);
     io.socket.post('/subscribe',{topics:topics});
     io.socket.on('tweet',function(someTweet){
@@ -77,8 +77,7 @@
   <div class="medium-3 columns"><img src="/images/moodindigo__small.jpg" alt=""></div>
   <div class="medium-3 columns"><img src="/images/congress__small.jpg" alt=""></div>
 </div>
-<br>
+<br><br>
 <h1 class="main-header">Tweets</h1>
-<br>
 <div id="tweet-spot"></div>
 
