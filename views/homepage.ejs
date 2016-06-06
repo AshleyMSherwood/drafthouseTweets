@@ -1,0 +1,19 @@
+<script language="javascript">
+  var subscribeToTopics = function(){
+    $(document).foundation();
+    var topics = ['#EUref'];
+    console.log('Subscribing to topics',topics);
+    io.socket.post('/subscribe',{topics:topics});
+    io.socket.on('tweet',function(someTweet){
+      console.log('got a tweet',someTweet);
+      var tweetSpot = document.getElementById('tweet-spot');
+      var incomingTweet = '<br><div>'+someTweet.timestamp+'<br><b>'+someTweet.user+'</b>: '+someTweet.tweet+'</div>';
+      tweetSpot.innerHTML = tweetSpot.innerHTML + incomingTweet;
+    });
+  }
+  window.onload=subscribeToTopics;
+</script>
+
+Tweets
+<br>
+<div id="tweet-spot"></div>
