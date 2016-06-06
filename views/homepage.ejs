@@ -1,19 +1,84 @@
 <script language="javascript">
   var subscribeToTopics = function(){
     $(document).foundation();
-    var topics = ['#EUref'];
+    var topics = ['#film, #movie'];
     console.log('Subscribing to topics',topics);
     io.socket.post('/subscribe',{topics:topics});
     io.socket.on('tweet',function(someTweet){
       console.log('got a tweet',someTweet);
       var tweetSpot = document.getElementById('tweet-spot');
-      var incomingTweet = '<br><div>'+someTweet.timestamp+'<br><b>'+someTweet.user+'</b>: '+someTweet.tweet+'</div>';
-      tweetSpot.innerHTML = tweetSpot.innerHTML + incomingTweet;
+      var incomingTweet = '<br><div>'+'<br><b>'+someTweet.user+'</b>: '+someTweet.tweet+'</div>';
+      tweetSpot.innerHTML = incomingTweet + tweetSpot.innerHTML;
     });
   }
   window.onload=subscribeToTopics;
+
 </script>
 
-Tweets
+<!-- Icon Bar -->
+
+<!-- <div class="icon-bar medium-up-5">
+  <a class="item">
+    <i class="fi-home"></i>
+    <label>Home</label>
+  </a>
+  <a class="item">
+    <i class="fi-bookmark"></i>
+    <label>Bookmark</label>
+  </a>
+  <a class="item">
+    <i class="fi-info"></i>
+    <label>Info</label>
+  </a>
+  <a class="item">
+    <i class="fi-mail"></i>
+    <label>Mail</label>
+  </a>
+  <a class="item">
+    <i class="fi-like"></i>
+    <label>Like</label>
+  </a>
+</div> -->
+<!-- http://foundation.zurb.com/sites/docs/v/5.5.3/components/icon-bar.html -->
+
+
+<!-- Some Fav Movie Posters -->
+<h1 class="main-header">Films</h1>
+<div class="row">
+  <div class="medium-3 columns"><img src="/images/american-beauty.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/attack-the-block.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/blue-valentine.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/donnie-darko.jpg" alt=""></div>
+</div>
+<div class="row">
+  <div class="medium-3 columns"><img src="/images/eternal-sunshine.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/fifth-element.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/inglourious-basterds.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/let-the-right-one-in.jpg" alt=""></div>
+</div>
+<div class="row">
+  <div class="medium-3 columns"><img src="/images/mad-max.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/memento.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/night-of-living.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/old-boy.jpg" alt=""></div>
+</div>
+<div class="row">
+  <div class="medium-3 columns"><img src="/images/pink-flamingos.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/secretary.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/spring-breakers.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/victoria.jpg" alt=""></div>
+</div>
+
+<!-- Tweets about Film/Movies -->
+<img src="/images/dhf-logo.png" alt="Drafthouse Films logo" class="img-header">
+<div class="row">
+  <div class="medium-3 columns"><img src="/images/spring__small.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/four-lions__small.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/moodindigo__small.jpg" alt=""></div>
+  <div class="medium-3 columns"><img src="/images/congress__small.jpg" alt=""></div>
+</div>
+<br>
+<h1 class="main-header">Tweets</h1>
 <br>
 <div id="tweet-spot"></div>
+

@@ -1,0 +1,13 @@
+html {
+	width: 900px;
+  margin: auto;
+}
+.main-header {
+	text-align: center;
+}
+.medium-3 {
+	padding: 5px;
+}
+.img-header {
+	width: 100%;
+}
